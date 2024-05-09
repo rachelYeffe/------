@@ -1,4 +1,6 @@
 const ury = 'Login/';
+const token = localStorage.getItem("token");
+
 function Sign_in() {
     const nameTextbox = document.getElementById('name').value;
     const passwordTextbox = document.getElementById('password').value;
@@ -11,13 +13,15 @@ function Sign_in() {
     };
 
     fetch(ury, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(item)
-        })
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+
+        },
+        body: JSON.stringify(item)
+    })
         .then(response => {
             if (response.status == 200) {
                 return response.json();

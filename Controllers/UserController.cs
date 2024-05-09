@@ -19,7 +19,7 @@ public class MyUsersController : ControllerBase
     [Authorize(Policy = "Admin")]
     public ActionResult<List<User>> GetAllUsers()
     {
-        System.Console.WriteLine("cfchnj");
+        System.Console.WriteLine();
         return UserService.GetAll();
     }
 
@@ -40,16 +40,18 @@ public class MyUsersController : ControllerBase
     }
     [HttpPost]
     [Authorize(Policy = "Admin")]
-    public IActionResult Post(User newUser)
+    public IActionResult Post([FromBody] User newUser)
     {
-           UserService.Post(newUser);
+        System.Console.WriteLine("Ncccccc");
+        UserService.Post(newUser);
         return CreatedAtAction(nameof(Post), new { id = newUser.Id }, newUser);
     }
 
     [HttpPut("{id}")]
-    [Authorize(Policy = "Admin")]
+    [Authorize(Policy = "User")]
     public ActionResult Put(int id, User newUser)
     {
+        System.Console.WriteLine("fandskjl");
         UserService.Put(id, newUser);
         return Ok();
     }
@@ -63,5 +65,5 @@ public class MyUsersController : ControllerBase
 
     }
 
-    
+
 }

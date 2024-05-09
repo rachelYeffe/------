@@ -13,20 +13,23 @@ function getUsers() {
     })
         .then(response =>
             response.json())
-        .then(data => _displayItems(data))
+        .then(data => _displayUsers(data))
         .catch(error => console.error('Unable to get items.', error));
 }
 
 
-function addItem() {
-    const addNameTextbox = document.getElementById('add-name');
-    const addIsDone = document.getElementById('add-IsDone');
-    console.log(addIsDone.checked);
-    const item = {
+function addUser() {
+    const UserName = document.getElementById('add-UserName');
+    const IsAdmin= document.getElementById('add-IsAdmin');
+    const Password = document.getElementById('add-IsAdmin');
+    // const addIsDone = document.getElementById('add-IsDone');
+
+    // console.log(addIsDone.checked);
+    const user = {
         Id: 0,
-        UserName: "",
-        IsAdmin: 0,
-        Password: 0
+        UserName: UserName.value,
+        IsAdmin: IsAdmin.value?1:0,
+        Password: Password.value
     };
 
 
@@ -34,72 +37,89 @@ function addItem() {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+
         },
-        body: JSON.stringify(item)
+        body: JSON.stringify(user)
     })
         .then(response => response.json())
         .then(() => {
-            getItems();
-            addNameTextbox.value = '';
-            addIsDone.checked = false;
+            getUsers();
+            UserName.value = '';
+            IsAdmin.value = '';
+            Password.value='';
         })
-        .catch(error => console.error('Unable to add item.', error));
+        .catch(error => console.error('Unable to add user.', error));
 }
 
-function deleteItem(id) {
+function deleteUser(id) {
     fetch(`${urlUsers}/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}`
+
+        },
     })
-        .then(() => getItems())
-        .catch(error => console.error('Unable to delete item.', error));
+        .then(() => getUsers())
+        .catch(error => console.error('Unable to delete user.', error));
 }
 
 function displayEditForm(id) {
-    const item = tasking.find(item => item.id === id);
+    const user = users.find(user => user.id === id);
 
-    document.getElementById('edit-TaskName').value = item.nameTasks;
-    document.getElementById('edit-Id').value = item.id;
-    document.getElementById('edit-IsDone').checked = item.isDone;
+    // document.getElementById('edit-UserName').value = user.userName;
+    document.getElementById('edit-Id').value = user.id;
+    // document.getElementById('edit-IsAdmin').value = user.isAdmin;
     document.getElementById('editForm').style.display = 'block';
 }
 
-function updateItem() {
-    const itemId = document.getElementById('edit-Id').value;
-    console.log(itemId);
-    const item = {
-        Id: itemId,
-        IsDone: document.getElementById('edit-IsDone').checked,
-        NameTasks: document.getElementById('edit-TaskName').value
+function updateUser() {
+    const userId = document.getElementById('edit-Id').value;
+    const userName = document.getElementById('edit-UserName').value;
+    const isAdmin = parseInt(document.getElementById('edit-IsAdmin').value);
+
+    const user = {
+        Id: userId,
+        UserName: userName,
+        IsAdmin: isAdmin?1:0,
+        Password: 0
     };
-    console.log(item.Id + " item");
-    fetch(`${urlUsers}/${itemId}`, {
+
+    fetch(`${urlUsers}/${userId}`, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(item)
+        body: JSON.stringify(user)
     })
-        .then(() => getItems())
-        .catch(error => console.error('Unable to update item.', error));
+        .then(response => {
+            if (response.status == 200) {
+                getUsers();
+            } else {
+                console.error('Update request failed with status:', response.status);
+            }
+        })
+        .catch(error => console.error('Unable to update user.', error));
 
     closeInput();
-
     return false;
 }
+
 
 function closeInput() {
     document.getElementById('editForm').style.display = 'none';
 }
 
-function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'Users' : 'User kinds';
+function _displayCount(userCount) {
+    const name = (userCount === 1) ? 'Users' : 'User kinds';
 
-    document.getElementById('counter').innerText = `${itemCount} ${name}`;
+    document.getElementById('counter').innerText = `${userCount} ${name}`;
 }
 
-function _displayItems(data) {
+function _displayUsers(data) {
     console.log(data);
     const tBody = document.getElementById('users');
     tBody.innerHTML = '';
@@ -117,7 +137,7 @@ function _displayItems(data) {
 
         let deleteButton = button.cloneNode(false);
         deleteButton.innerText = 'Delete';
-        deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
+        deleteButton.setAttribute('onclick', `deleteUser(${item.id})`);
 
         let tr = tBody.insertRow();
 
@@ -130,19 +150,19 @@ function _displayItems(data) {
         td2.appendChild(userNameTextNode);
 
         let td3 = tr.insertCell(2);
-        let userTypeTextNode = document.createTextNode(item.userType);
-        td2.appendChild(userTypeTextNode);
+        let userTypeTextNode = document.createTextNode(item.isAdmin);
+        td3.appendChild(userTypeTextNode);
 
         let td4 = tr.insertCell(3);
         let passwordTextNode = document.createTextNode(item.password);
-        td2.appendChild(passwordTextNode);
+        td4.appendChild(passwordTextNode);
 
         let td5 = tr.insertCell(4);
-        td3.appendChild(editButton);
+        td5.appendChild(editButton);
 
         let td6 = tr.insertCell(5);
-        td4.appendChild(deleteButton);
+        td6.appendChild(deleteButton);
     });
 
-    tasking = data;
+    users = data;
 }

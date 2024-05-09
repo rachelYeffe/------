@@ -3,25 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Task CRUD</title>
+    <title>User CRUD</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
 
 <body>
-    <h1>Task CRUD</h1>
+    <h1>User CRUD</h1>
     <h3>Add</h3>
-    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
-        <input type="checkbox" id="add-IsDone">
-        <input type="text" id="add-name" placeholder="New Task">
+    <form action="javascript:void(0);" method="POST" onsubmit="addUser()">
+        <!-- <input type="text" id="add-Id" placeholder="Enter Id"> -->
+        <input type="text" id="add-UserName" placeholder="Enter UserNam" required>
+        <input type="text" id="add-IsAdmin" placeholder="Enter UserType" required>
+        <input type="text" id="add-Password" placeholder="Enter Password" required>
         <input type="submit" value="Add">
     </form>
 
     <div id="editForm">
         <h3>Edit</h3>
-        <form action="javascript:void(0);" onsubmit="updateItem()">
-            <input type="hidden" id="edit-Id">
-            <input type="checkbox" id="edit-IsDone">
-            <input type="text" id="edit-TaskName">
+        <form action="javascript:void(0);" onsubmit="updateUser()">
+            <input type="hidden" id="edit-Id" >
+            <input type="text" id="edit-UserName" placeholder="enter userName">
+            <input type="text" id="edit-IsAdmin" placeholder="enter userType">
             <input type="submit" value="Save">
             <a onclick="closeInput()" aria-label="Close">&#10006;</a>
         </form>
@@ -34,9 +36,9 @@
             <th>id</th>
             <th>nameUsers</th>
             <th>userType</th>
-            <th>Password</th>
-            <th></th>
-            <th></th>
+            <th>password</th>
+            <th>edit</th>
+            <th>delete</th>
         </tr>
         <tbody id="users"></tbody>
     </table>

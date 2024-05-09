@@ -13,35 +13,43 @@ public class MyTasksController : ControllerBase
 {
     public ITaskService TaskService;
     public IUserService userService;
-    public int userId {get; set ; }
-    
+    public int userId { get; set; }
+
     public MyTasksController(ITaskService TaskService, IUserService userService, IHttpContextAccessor httpContextAccessor)
     {
         this.TaskService = TaskService;
         this.userService = userService;
-        this.userId = int.Parse(httpContextAccessor.HttpContext.User?.FindFirst("Id")?.Value ?? "0",CultureInfo.InstalledUICulture);
+        this.userId = int.Parse(httpContextAccessor.HttpContext.User?.FindFirst("Id")?.Value ?? "0", CultureInfo.InstalledUICulture);
     }
     [HttpGet]
+    [Authorize(Policy = "User")]
+
     public List<MyTask> Get()
     {
-        
+
         return TaskService.Get(222);
-        
+
     }
     [HttpPost]
+    [Authorize(Policy = "User")]
+
     public IActionResult Post(MyTask newTask)
     {
-           TaskService.Post(newTask);
+        TaskService.Post(newTask);
         return CreatedAtAction(nameof(Post), new { id = newTask.Id }, newTask);
     }
 
     [HttpPut("{id}")]
+    [Authorize(Policy = "User")]
+
     public ActionResult Put(int id, MyTask newTask)
     {
         TaskService.Put(id, newTask);
         return Ok();
     }
     [HttpDelete("{id}")]
+    [Authorize(Policy = "User")]
+
     public ActionResult Delete(int id)
     {
         TaskService.Delete(id);
@@ -50,5 +58,5 @@ public class MyTasksController : ControllerBase
 
     }
 
-    
+
 }

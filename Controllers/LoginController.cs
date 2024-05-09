@@ -38,22 +38,22 @@ namespace Tasks.controllers
             {
                 return BadRequest();
             }
-            if (myUser.IsAdmin == UserType.Admin)
-            {
-                claims = new List<Claim>
-                {
-                    new Claim("UserType" , "Admin"),
-                    new Claim("Id" , myUser.Id.ToString()),
-                };
-
-            }
-            if (myUser.IsAdmin == UserType.User)
-            {
+          
+            
                 claims = new List<Claim>
                 {
                     new Claim("UserType" , "User"),
                     new Claim("Id" , myUser.Id.ToString()),
                 };
+
+            
+            if (myUser.IsAdmin == UserType.Admin)
+            {
+                claims.Add(new Claim("UserType", "Admin"));
+                
+                
+                    // new Claim("Id" , myUser.Id.ToString()),
+                
 
             }
             var token = TokenService.GetToken(claims);

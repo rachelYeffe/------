@@ -42,8 +42,12 @@ public class UserServiceFile:IUserService
 
     public void Put(int id, User newUser)
     {
+        System.Console.WriteLine("zxcvhjk");
         if (id == newUser.Id)
         {
+            System.Console.WriteLine(
+                "NFDSABHFHREAFUIEL"
+            );
             var user = list.Find(p => p.Id == id);
             if (user != null)
             {
