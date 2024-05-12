@@ -14,13 +14,13 @@ function getUsers() {
         .then(response =>
             response.json())
         .then(data => _displayUsers(data))
-        .catch(error => console.error('Unable to get items.', error));
+        .catch(error => console.error('Unable to get users.', error));
 }
 
 
 function addUser() {
     const UserName = document.getElementById('add-UserName');
-    const IsAdmin= document.getElementById('add-IsAdmin');
+    const IsAdmin = document.getElementById('add-IsAdmin');
     const Password = document.getElementById('add-IsAdmin');
     // const addIsDone = document.getElementById('add-IsDone');
 
@@ -28,7 +28,7 @@ function addUser() {
     const user = {
         Id: 0,
         UserName: UserName.value,
-        IsAdmin: IsAdmin.value?1:0,
+        IsAdmin: IsAdmin.value ? 1 : 0,
         Password: Password.value
     };
 
@@ -48,7 +48,7 @@ function addUser() {
             getUsers();
             UserName.value = '';
             IsAdmin.value = '';
-            Password.value='';
+            Password.value = '';
         })
         .catch(error => console.error('Unable to add user.', error));
 }
@@ -74,45 +74,6 @@ function displayEditForm(id) {
     document.getElementById('editForm').style.display = 'block';
 }
 
-function updateUser() {
-    const userId = document.getElementById('edit-Id').value;
-    const userName = document.getElementById('edit-UserName').value;
-    const isAdmin = parseInt(document.getElementById('edit-IsAdmin').value);
-
-    const user = {
-        Id: userId,
-        UserName: userName,
-        IsAdmin: isAdmin?1:0,
-        Password: 0
-    };
-
-    fetch(`${urlUsers}/${userId}`, {
-        method: 'PUT',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(user)
-    })
-        .then(response => {
-            if (response.status == 200) {
-                getUsers();
-            } else {
-                console.error('Update request failed with status:', response.status);
-            }
-        })
-        .catch(error => console.error('Unable to update user.', error));
-
-    closeInput();
-    return false;
-}
-
-
-function closeInput() {
-    document.getElementById('editForm').style.display = 'none';
-}
-
 function _displayCount(userCount) {
     const name = (userCount === 1) ? 'Users' : 'User kinds';
 
@@ -129,11 +90,6 @@ function _displayUsers(data) {
     const button = document.createElement('button');
 
     data.forEach(item => {
-        // let Id = document.createElement('input');
-        // Id .type = 'text';
-        let editButton = button.cloneNode(false);
-        editButton.innerText = 'Edit';
-        editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
 
         let deleteButton = button.cloneNode(false);
         deleteButton.innerText = 'Delete';
@@ -157,11 +113,10 @@ function _displayUsers(data) {
         let passwordTextNode = document.createTextNode(item.password);
         td4.appendChild(passwordTextNode);
 
-        let td5 = tr.insertCell(4);
-        td5.appendChild(editButton);
 
-        let td6 = tr.insertCell(5);
-        td6.appendChild(deleteButton);
+
+        let td5 = tr.insertCell(4);
+        td5.appendChild(deleteButton);
     });
 
     users = data;

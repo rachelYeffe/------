@@ -1,12 +1,11 @@
 using Tasks;
 namespace Tasks.Models;
-public enum UserType{User,Admin,UnConnected}
 public class User
 {
     
     public int Id { get; set; } 
     public string UserName { get; set; }
-    public UserType IsAdmin { get; set; } = UserType.UnConnected;
+    public int IsAdmin { get; set; }
     public int Password { get; set; }
 
 

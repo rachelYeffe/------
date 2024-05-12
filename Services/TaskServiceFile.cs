@@ -28,9 +28,9 @@ public class TaskServiceFile:ITaskService
         }
     public List<MyTask> GetAll()=>list;
  
-    public List<MyTask> Get(int id)
+    public List<MyTask> Get(int userId)
     {
-        return list.FindAll(t => t.Id == id);
+        return list.FindAll(t => t.UserId == userId);
     }
    
     public void Post(MyTask newTask)

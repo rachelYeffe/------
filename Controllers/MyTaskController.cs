@@ -27,7 +27,8 @@ public class MyTasksController : ControllerBase
     public List<MyTask> Get()
     {
 
-        return TaskService.Get(222);
+System.Console.WriteLine(userId+" UserId");
+        return TaskService.Get(userId);
 
     }
     [HttpPost]
@@ -35,6 +36,7 @@ public class MyTasksController : ControllerBase
 
     public IActionResult Post(MyTask newTask)
     {
+        newTask.UserId=this.userId;
         TaskService.Post(newTask);
         return CreatedAtAction(nameof(Post), new { id = newTask.Id }, newTask);
     }
@@ -42,8 +44,9 @@ public class MyTasksController : ControllerBase
     [HttpPut("{id}")]
     [Authorize(Policy = "User")]
 
-    public ActionResult Put(int id, MyTask newTask)
+    public ActionResult Put(int id,[FromBody] MyTask newTask)
     {
+        newTask.UserId=userId;
         TaskService.Put(id, newTask);
         return Ok();
     }

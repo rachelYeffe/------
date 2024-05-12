@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasks.Interfaces;
@@ -11,15 +12,19 @@ namespace Tasks.controllers;
 public class MyUsersController : ControllerBase
 {
     public IUserService UserService;
-    public MyUsersController(IUserService UserService)
+    public int userId { get; set; }
+
+    public MyUsersController(IUserService UserService, IHttpContextAccessor httpContextAccessor)
     {
         this.UserService = UserService;
+        this.userId = int.Parse(httpContextAccessor.HttpContext.User?.FindFirst("Id")?.Value ?? "0", CultureInfo.InstalledUICulture);
+
     }
     [HttpGet]
     [Authorize(Policy = "Admin")]
     public ActionResult<List<User>> GetAllUsers()
     {
-        System.Console.WriteLine();
+        // System.Console.WriteLine();
         return UserService.GetAll();
     }
 
@@ -28,7 +33,7 @@ public class MyUsersController : ControllerBase
     [Authorize(Policy = "Admin")]
     public ActionResult<string> GetAdmin()
     {
-        System.Console.WriteLine("C fljkv");
+        // System.Console.WriteLine("C fljkv");
         return new OkObjectResult("true");
     }
 
@@ -38,21 +43,29 @@ public class MyUsersController : ControllerBase
     {
         return UserService.Get(id);
     }
+    // [HttpGet]
+    // [Authorize(Policy = "User")]
+    // public ActionResult<User> Get()
+    // {
+    //     return UserService.Get(userId);
+    // }
     [HttpPost]
     [Authorize(Policy = "Admin")]
     public IActionResult Post([FromBody] User newUser)
     {
-        System.Console.WriteLine("Ncccccc");
+        // System.Console.WriteLine("Ncccccc");
         UserService.Post(newUser);
         return CreatedAtAction(nameof(Post), new { id = newUser.Id }, newUser);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put(int id, User newUser)
+    public ActionResult Put(User newUser)
     {
-        System.Console.WriteLine("fandskjl");
-        UserService.Put(id, newUser);
+        // System.Console.WriteLine("fandskjl");
+        User user=UserService.Get(userId);
+        System.Console.WriteLine(userId+"fdsn");
+        UserService.Put(newUser,user);
         return Ok();
     }
     [HttpDelete("{id}")]

@@ -34,12 +34,7 @@ namespace Tasks.controllers
             if (myUser == null)
                 return Unauthorized();
             var claims = new List<Claim>();
-            if (myUser.IsAdmin == UserType.UnConnected)
-            {
-                return BadRequest();
-            }
-          
-            
+        
                 claims = new List<Claim>
                 {
                     new Claim("UserType" , "User"),
@@ -47,12 +42,12 @@ namespace Tasks.controllers
                 };
 
             
-            if (myUser.IsAdmin == UserType.Admin)
+            if (myUser.IsAdmin ==1)
             {
                 claims.Add(new Claim("UserType", "Admin"));
                 
                 
-                    // new Claim("Id" , myUser.Id.ToString()),
+                    //  new Claim("Id" , myUser.Id.ToString()),
                 
 
             }

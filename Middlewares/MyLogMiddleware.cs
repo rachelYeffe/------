@@ -16,15 +16,15 @@ namespace Middleware
         public MyLogMiddleware(RequestDelegate next, IWebHostEnvironment webHost)
         {
             this.next = next;
-            this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Log.txt");
-            
+            this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Logs.txt");
+
         }
         public async Task Invoke(HttpContext c)
         {
             var sw = new Stopwatch();
             sw.Start();
             await next.Invoke(c);
-            File.AppendAllText(filePath, ($"{c.Request.Path}.{c.Request.Method} took {sw.ElapsedMilliseconds}ms."
+            File.AppendAllText(filePath, ($"{c.Request.Path}.{c.Request.Method} took {sw.ElapsedMilliseconds}ms.{DateTime.Now}"
                 + $" User: {c.User?.FindFirst("Id")?.Value ?? "unknown"}") + "\n");
         }
 

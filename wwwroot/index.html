@@ -9,17 +9,31 @@
 
 <body>
     <h1>Task CRUD</h1>
-    <h3>Add</h3>
+    <button onclick="addTask()">Add Task</button>
+    <div id="addTasks">
     <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
         <input type="checkbox" id="add-IsDone">
         <input type="text" id="add-name" placeholder="New Task">
         <input type="submit" value="Add">
     </form>
-
+</div>
+    <button onclick="editUser()">Edit User</button>
+    <div id="editFormUser">
+        <h3></h3>
+        <form action="javascript:void(0);" onsubmit="updateUser()">
+            <input type="hidden" id="edit-Id" >
+            <input type="text" id="edit-UserName" placeholder="enter userName">
+            <input type="hidden" id="edit-IsAdmin">
+            <input type="text" id="edit-Password" placeholder="enter password">
+            <input type="submit" value="Save">
+            <a onclick="closeInputUser()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
     <div id="editForm">
         <h3>Edit</h3>
         <form action="javascript:void(0);" onsubmit="updateItem()">
             <input type="hidden" id="edit-Id">
+            <!-- <input type="hidden" id="edit-UserId"> -->
             <input type="checkbox" id="edit-IsDone">
             <input type="text" id="edit-TaskName">
             <input type="submit" value="Save">

@@ -6,32 +6,33 @@ using Microsoft.AspNetCore.Hosting;
 using System.Text.Json;
 namespace Tasks.services;
 
-public class UserServiceFile:IUserService
+public class UserServiceFile : IUserService
 {
-    private  List<User> list;
+    private List<User> list;
     private string filePath;
-     public UserServiceFile(IWebHostEnvironment webHost)
+    public UserServiceFile(IWebHostEnvironment webHost)
     {
-        this.filePath=Path.Combine(webHost.ContentRootPath, "Data", "Users.json");
-          using (var jsonFile = File.OpenText(filePath))
+        this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Users.json");
+        using (var jsonFile = File.OpenText(filePath))
+        {
+            list = JsonSerializer.Deserialize<List<User>>(jsonFile.ReadToEnd(),
+            new JsonSerializerOptions
             {
-                list = JsonSerializer.Deserialize<List<User>>(jsonFile.ReadToEnd(),
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
-            }
+                PropertyNameCaseInsensitive = true
+            });
+        }
     }
     private void saveToFile()
-        {
-            File.WriteAllText(filePath, JsonSerializer.Serialize(list));
-        }
-    public List<User> GetAll()=>list;
- 
+    {
+        File.WriteAllText(filePath, JsonSerializer.Serialize(list));
+    }
+    public List<User> GetAll() => list;
+
     public User Get(int id)
     {
-        return list.FirstOrDefault(t=>t.Id==id); }
-   
+        return list.FirstOrDefault(t => t.Id == id);
+    }
+
     public void Post(User newUser)
     {
         int max = list.Max(p => p.Id);
@@ -40,22 +41,20 @@ public class UserServiceFile:IUserService
         saveToFile();
     }
 
-    public void Put(int id, User newUser)
+    public void Put(User newUser, User oldUser)
     {
-        System.Console.WriteLine("zxcvhjk");
-        if (id == newUser.Id)
+        // System.Console.WriteLine("zxcvhjk");
+        newUser.Id = oldUser.Id;
+        newUser.IsAdmin = oldUser.IsAdmin;
+
+        var user = list.Find(p => p.Id == newUser.Id);
+        if (user != null)
         {
-            System.Console.WriteLine(
-                "NFDSABHFHREAFUIEL"
-            );
-            var user = list.Find(p => p.Id == id);
-            if (user != null)
-            {
-                int index = list.IndexOf(user);
-                list[index] = newUser;
-                saveToFile();
-            }
+            int index = list.IndexOf(user);
+            list[index] = newUser;
+            saveToFile();
         }
+
     }
     public void Delete(int id)
     {
@@ -69,10 +68,10 @@ public class UserServiceFile:IUserService
 
     }
 
-  
+
     public User FindUser(User user)
     {
-        return  list.Find(p => p.UserName == user.UserName && p.Password == user.Password);
+        return list.Find(p => p.UserName == user.UserName && p.Password == user.Password);
     }
 
 
