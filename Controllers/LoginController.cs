@@ -26,6 +26,7 @@ namespace Tasks.controllers
         {
             System.Console.WriteLine("hi im enter");
 
+           
             User myUser = UserService.FindUser(User);
 
             if (myUser == null)

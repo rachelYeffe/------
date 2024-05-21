@@ -7,5 +7,5 @@ public interface IUserService
     void Post(User newUser);
     void Put(User newuser,User olsUser);
     void Delete(int id);
-    User FindUser(User user);
+    User FindUser(User u);
 }

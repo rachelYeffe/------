@@ -69,9 +69,9 @@ public class UserServiceFile : IUserService
     }
 
 
-    public User FindUser(User user)
+    public User FindUser(User u)
     {
-        return list.Find(p => p.UserName == user.UserName && p.Password == user.Password);
+        return list.Find(p => p.UserName == u.UserName && p.Password == u.Password);
     }
 
 
