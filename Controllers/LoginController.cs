@@ -26,29 +26,26 @@ namespace Tasks.controllers
         {
             System.Console.WriteLine("hi im enter");
 
-            User myUser = UserService.GetAll().FirstOrDefault(p => p.UserName == User.UserName && p.Password == User.Password);
-            //    if(UserService.FindUser(User) == null)
-            //    {
-            //         return BadRequest();
-            //    }
+            User myUser = UserService.FindUser(User);
+
             if (myUser == null)
                 return Unauthorized();
             var claims = new List<Claim>();
-        
-                claims = new List<Claim>
+
+            claims = new List<Claim>
                 {
                     new Claim("UserType" , "User"),
                     new Claim("Id" , myUser.Id.ToString()),
                 };
 
-            
-            if (myUser.IsAdmin ==1)
+
+            if (myUser.IsAdmin == 1)
             {
                 claims.Add(new Claim("UserType", "Admin"));
-                
-                
-                    //  new Claim("Id" , myUser.Id.ToString()),
-                
+
+
+                //  new Claim("Id" , myUser.Id.ToString()),
+
 
             }
             var token = TokenService.GetToken(claims);
