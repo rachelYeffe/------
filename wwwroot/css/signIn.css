@@ -1,0 +1,76 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: -50px; /* Raise the title above the body */
+    font-size: 50px; /* Increase the font size */
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #007bff; /* Blue color */
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+#g_id_signin {
+    margin: 10px 0;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.postman-run-button {
+    margin-top: 5px;
+    width: 100%; /* Make the Postman button full width */
+}
+
+/* Additional colors */
+input[type="text"] {
+    border-color: #28a745; /* Green color */
+}
+
+input[type="password"] {
+    border-color: #ffc107; /* Yellow color */
+}
