@@ -14,7 +14,7 @@
     {
         "Id": 222,
         "UserName": "222",
-        "IsAdmin": 0,
+        "IsAdmin": 1,
         "Password": 222
     },
     {
