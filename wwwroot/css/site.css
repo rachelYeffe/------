@@ -35,7 +35,7 @@ input[type="submit"] {
     padding: 8px;
     margin: 5px 0;
     box-sizing: border-box;
-    border: 1px solid #28a745; /* Green color for text input */
+    border: 1px solid#d32f2f; /* Green color for text input */
     border-radius: 4px;
 }
 
@@ -44,7 +44,7 @@ input[type="checkbox"] {
 }
 
 input[type="submit"] {
-    background-color: #007bff; /* Blue color */
+    background-color:#d32f2f; /* Blue color */
     color: #fff;
 }
 
@@ -120,9 +120,10 @@ button:hover {
 }
 
 #AllUsers {
+    text-decoration: none;
     display: block;
     text-align: center;
     margin-top: 20px;
-    color: #ff4800;
+    color: #ffffff;
     
 }
