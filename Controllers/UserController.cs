@@ -43,28 +43,19 @@ public class MyUsersController : ControllerBase
     {
         return UserService.Get(id);
     }
-    // [HttpGet]
-    // [Authorize(Policy = "User")]
-    // public ActionResult<User> Get()
-    // {
-    //     return UserService.Get(userId);
-    // }
     [HttpPost]
     [Authorize(Policy = "Admin")]
     public IActionResult Post([FromBody] User newUser)
     {
-        // System.Console.WriteLine("Ncccccc");
         UserService.Post(newUser);
         return CreatedAtAction(nameof(Post), new { id = newUser.Id }, newUser);
     }
 
     [HttpPut]
     [Authorize(Policy = "User")]
-    public ActionResult Put(User newUser)
+    public ActionResult Put([FromBody]User newUser)
     {
-        // System.Console.WriteLine("fandskjl");
         User user=UserService.Get(userId);
-        System.Console.WriteLine(userId+"fdsn");
         UserService.Put(newUser,user);
         return Ok();
     }
