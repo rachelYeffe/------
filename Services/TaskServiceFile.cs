@@ -66,5 +66,9 @@ public class TaskServiceFile:ITaskService
 
     }
 
-    
+    public  void DeleteAllTasks(int UserId)
+    {
+        list.RemoveAll(p=>p.UserId==UserId);
+        saveToFile();
+    }
 }

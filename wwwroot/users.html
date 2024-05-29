@@ -32,7 +32,7 @@
         </tr>
         <tbody id="users"></tbody>
     </table>
-
+<button><a href="./index.html">Tasks</a></button>
     <script src="js/users.js" asp-append-version="true"></script>
     <script type="text/javascript">
         if(!localStorage.getItem('token'))
@@ -40,6 +40,7 @@
             window.location.href = "signIN.html"
         }
         getUsers();
+
     </script>
     <a id="AllUsers" hidden="true" href="./index.html">ALL USERS</a>
 </body>

@@ -27,7 +27,7 @@ public class MyTasksController : ControllerBase
     public List<MyTask> Get()
     {
 
-System.Console.WriteLine(userId+" UserId");
+        System.Console.WriteLine(userId + " UserId");
         return TaskService.Get(userId);
 
     }
@@ -36,7 +36,7 @@ System.Console.WriteLine(userId+" UserId");
 
     public IActionResult Post(MyTask newTask)
     {
-        newTask.UserId=this.userId;
+        newTask.UserId = this.userId;
         TaskService.Post(newTask);
         return CreatedAtAction(nameof(Post), new { id = newTask.Id }, newTask);
     }
@@ -44,9 +44,9 @@ System.Console.WriteLine(userId+" UserId");
     [HttpPut("{id}")]
     [Authorize(Policy = "User")]
 
-    public ActionResult Put(int id,[FromBody] MyTask newTask)
+    public ActionResult Put(int id, [FromBody] MyTask newTask)
     {
-        newTask.UserId=userId;
+        newTask.UserId = userId;
         TaskService.Put(id, newTask);
         return Ok();
     }
@@ -57,9 +57,15 @@ System.Console.WriteLine(userId+" UserId");
     {
         TaskService.Delete(id);
         return Ok();
-
-
     }
 
+
+    [HttpDelete("/deleteAllTasks/{id}")] // Route template with the id parameter
+    [Authorize(Policy = "User")]
+    public ActionResult<string> DeleteAllTasks(int id)
+    {
+        TaskService.DeleteAllTasks(id);
+        return Ok("ok");
+    }
 
 }

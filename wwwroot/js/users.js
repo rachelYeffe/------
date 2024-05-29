@@ -1,4 +1,5 @@
 const urlUsers = '/MyUsers';
+const urlTasks='/MyTasks'
 let users = [];
 const token = localStorage.getItem('token')
 function getUsers() {
@@ -63,6 +64,16 @@ function deleteUser(id) {
     })
         .then(() => getUsers())
         .catch(error => console.error('Unable to delete user.', error));
+        fetch(`deleteAllTasks/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+    
+            },
+        })
+          
+            .catch(error => console.error('Unable to delete user.', error));
+
 }
 
 function displayEditForm(id) {

@@ -6,5 +6,5 @@ public interface ITaskService
     void Post(MyTask newTask);
     void Put(int id,MyTask newTask);
     void Delete(int id);
-
+    void DeleteAllTasks(int userId);
 }
