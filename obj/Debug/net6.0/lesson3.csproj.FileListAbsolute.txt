@@ -344,3 +344,42 @@ E:\פרויקט\obj\Debug\net6.0\ref\lesson3.dll
 E:\פרויקט\bin\Debug\net6.0\package-lock.json
 E:\פרויקט\bin\Debug\net6.0\package.json
 E:\פרויקט\obj\Debug\net6.0\lesson3.csproj.CopyComplete
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\appsettings.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Data\Task.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Data\Users.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\package-lock.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\package.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\lesson3.staticwebassets.runtime.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\lesson3.exe
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\lesson3.deps.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\lesson3.runtimeconfig.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\lesson3.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\lesson3.pdb
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.csproj.AssemblyReference.cache
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.AssemblyInfoInputs.cache
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.AssemblyInfo.cs
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.csproj.CoreCompileInputs.cache
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\scopedcss\bundle\lesson3.styles.css
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.csproj.CopyComplete
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\refint\lesson3.dll
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.pdb
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\lesson3.genruntimeconfig.cache
+C:\Users\יפה\Desktop\רחלי תיכנות\שנה ב\זילברברג\project\------\obj\Debug\net6.0\ref\lesson3.dll
