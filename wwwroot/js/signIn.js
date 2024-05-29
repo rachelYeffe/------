@@ -12,7 +12,7 @@ function Sign_in(nameTextbox,passwordTextbox) {
  
 
     const item = {
-        Id: passwordTextbox,
+        Id: 0,
         UserName: nameTextbox,
         IsAdmin: 0,
         Password: passwordTextbox,
