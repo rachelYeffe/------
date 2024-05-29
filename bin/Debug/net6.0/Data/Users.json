@@ -1,50 +1,9 @@
 [
     {
         "Id": 222,
-        "UserName": "d",
+        "UserName": "רחל יפה",
         "IsAdmin": 1,
-        "Password": 333333333
-    },
-    {
-        "Id": 333,
-        "UserName": "tal",
-        "IsAdmin": 1,
-        "Password": 333
-    },
-    {
-        "Id": 222,
-        "UserName": "222",
-        "IsAdmin": 0,
-        "Password": 222
-    },
-    {
-        "Id": 224,
-        "UserName": "rew",
-        "IsAdmin": 1,
-        "Password": 1
-    },
-    {
-        "Id": 334,
-        "UserName": "rqw",
-        "IsAdmin": 1,
-        "Password": 1
-    },
-    {
-        "Id": 335,
-        "UserName": "rqw",
-        "IsAdmin": 1,
-        "Password": 0
-    },
-    {
-        "Id": 336,
-        "UserName": "rew",
-        "IsAdmin": 1,
-        "Password": 0
-    },
-    {
-        "Id": 337,
-        "UserName": " ,m",
-        "IsAdmin": 1,
-        "Password": 4
+        "Password": "112884939506924229577"
     }
+  
 ]
